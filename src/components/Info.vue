@@ -1,17 +1,39 @@
 <template>
   <div>
-    <p>Working at: </p>
-    <p>Main skills:</p>
+    <h2>Info</h2>
+    <div v-if="is_working">
+      <p>I'm currently employed.</p>
+      <p>Working at: {{ company }}</p>
+    </div>
+    <div v-else>
+      <p>I'm open to work.</p>
+    </div>
+    <div v-show="show_email">
+      <p>Send a message to: {{ email }}</p>
+    </div>
+    <p>Skills:</p>
     <ul>
-      <li>C#</li>
-      <li>SQL</li>
-      <li>Git</li>
+      <li v-for="skill in skills" :key="skill">{{ skill }}</li>
     </ul>
+    <p>To access portfolio: <a :href="portfolio_link">click here</a>.</p>
+    <Picture />
   </div>
 </template>
 
 <script>
+import Picture from './Picture.vue';
 export default {
+  components: { Picture },
   name: "Info",
+  data() {
+    return {
+      is_working: true,
+      show_email: true,
+      company: "Dell Lead",
+      email: "user@gmail.com",
+      skills: ["C#", "SQL", "Git"],
+      portfolio_link: "https://google.com"
+    };
+  },
 };
 </script>
