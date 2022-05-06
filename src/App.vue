@@ -1,20 +1,30 @@
 <template>
-  <MeuComponente />
+  <Header />
+  <MainComponent />
   <LifeCicle />
-  <Pessoa />
+  <Perfil />
 </template>
 
 <script>
-import MeuComponente from "./components/MeuComponente.vue";
+import Header from "./components/Header.vue";
+import MainComponent from "./components/MainComponent.vue";
 import LifeCicle from "./components/LifeCicle.vue";
-import Pessoa from "./components/Pessoa.vue";
+import Perfil from "./components/Perfil.vue";
 
 export default {
   name: "App",
   components: {
-    MeuComponente,
+    Header,
+    MainComponent,
     LifeCicle,
-    Pessoa,
+    Perfil,
   },
 };
 </script>
+
+<style>
+body {
+  background-color: #333;
+  color: #fff;
+}
+</style>

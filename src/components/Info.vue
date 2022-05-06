@@ -8,6 +8,7 @@
     <div v-else>
       <p>I'm open to work.</p>
     </div>
+    <button @click="showEmail">{{ button_email_text }}</button>
     <div v-show="show_email">
       <p>Send a message to: {{ email }}</p>
     </div>
@@ -21,7 +22,7 @@
 </template>
 
 <script>
-import Picture from './Picture.vue';
+import Picture from "./Picture.vue";
 export default {
   components: { Picture },
   name: "Info",
@@ -32,8 +33,16 @@ export default {
       company: "Dell Lead",
       email: "user@gmail.com",
       skills: ["C#", "SQL", "Git"],
-      portfolio_link: "https://google.com"
+      portfolio_link: "https://google.com",
+      button_email_text: "Hide email",
     };
+  },
+  methods: {
+    showEmail() {
+      this.show_email = !this.show_email;
+      if (this.show_email) this.button_email_text = "Hide email";
+      else if (!this.show_email) this.button_email_text = "Show email";
+    },
   },
 };
 </script>
